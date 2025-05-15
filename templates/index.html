@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>背单词 · 抗遗忘复习</title>
+    <style>
+        body { font-family: sans-serif; padding: 2em; background: #f6f6f6; }
+        h2 { margin-top: 2em; }
+        form { margin-bottom: 1.5em; }
+        .word-box { padding: 0.5em; margin: 0.5em 0; background: white; border-radius: 5px; box-shadow: 0 0 3px rgba(0,0,0,0.1); }
+        .stats { margin-top: 2em; padding: 1em; background: #fffbe6; border: 1px solid #ffd666; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>📘 马腾宇抗遗忘复习</h1>
+
+    {% if message %}<p><strong>{{ message }}</strong></p>{% endif %}
+
+    <h2>➕ 添加新单词</h2>
+    <form method="POST">
+        <input type="text" name="new_word" placeholder="英文" required>
+        <input type="text" name="meaning" placeholder="中文释义" required>
+        <button type="submit">添加</button>
+    </form>
+
+    <h2>🕐 待复习单词</h2>
+    {% if review_words %}
+        {% for word, info in review_words %}
+        <div class="word-box">
+            <form method="POST">
+                <strong>{{ word }}</strong> - {{ info.meaning }}<br>
+                （记录于 {{ info.start_date }}）<br>
+                <input type="hidden" name="review_action" value="{{ word }}">
+                <label><input type="radio" name="action_{{ word }}" value="yes" required> 记住</label>
+                <label><input type="radio" name="action_{{ word }}" value="no"> 没记住</label>
+                <button type="submit">提交</button>
+            </form>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>🎉 今天没有需要复习的单词！</p>
+    {% endif %}
+
+    <h2>📉 错误总结</h2>
+    {% if errors %}
+        <ul>
+        {% for word, info in errors %}
+            <li>{{ word }} - {{ info.meaning }}（记录于 {{ info.start_date }}）</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>暂无错误记录。</p>
+    {% endif %}
+
+    <div class="stats">
+        <strong>复习进度：</strong><br>
+        总词数：{{ stats.total }}，
+        已完成：{{ stats.completed }}，
+        错词：{{ stats.errors }}，
+        待复习：{{ stats.pending }}
+    </div>
+</body>
+</html>
