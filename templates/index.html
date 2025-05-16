@@ -17,10 +17,10 @@
     <button type="submit">添加</button>
   </form>
 
-  <h2>📤 导入词库</h2>
+  <h2>📤 导入词库（.json 文件）</h2>
   <form method="POST" action="/import_vocab" enctype="multipart/form-data">
     <input type="file" name="vocab_file">
-    <button type="submit">导入 JSON</button>
+    <button type="submit">导入</button>
   </form>
 
   <h2>🕒 待复习单词</h2>
@@ -62,6 +62,11 @@
   {% else %}
     <p>暂无错误记录。</p>
   {% endif %}
+
+  <p>📝 复习进度：总词数：{{ stats.total }}，已完成：{{ stats.completed }}，错词：{{ stats.errors }}，待复习：{{ stats.pending }}</p>
+</body>
+</html>
+
 
   <p>📝 复习进度：总词数：{{ stats.total }}，已完成：{{ stats.completed }}，错词：{{ stats.errors }}，待复习：{{ stats.pending }}</p>
 </body>
