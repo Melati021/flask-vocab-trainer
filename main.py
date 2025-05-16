@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, send_file
 import json
 import os
 import datetime
@@ -110,8 +110,13 @@ def import_vocab():
             return f"导入失败：{e}", 400
     return "无效的文件类型", 400
 
+@app.route("/download_errors")
+def download_errors():
+    if os.path.exists(ERROR_FILE):
+        return send_file(ERROR_FILE, as_attachment=True)
+    return "没有错词可导出", 404
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-
 
