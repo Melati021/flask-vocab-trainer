@@ -42,6 +42,8 @@ def index():
     data = load_data()
     message = ""
 
+    show_meaning = set()  # words to show meanings after review
+
     if request.method == "POST":
         if "new_word" in request.form:
             word = request.form["new_word"].strip()
@@ -68,6 +70,7 @@ def index():
                 data[word]["wrong"] = True
             if sorted(data[word]["reviews"]) == REVIEW_DAYS:
                 data[word]["completed"] = True
+            show_meaning.add(word)
 
         elif "delete_word" in request.form:
             word = request.form["delete_word"]
@@ -91,7 +94,7 @@ def index():
         "pending": len(review_words)
     }
 
-    return render_template("index.html", data=data, review_words=review_words, errors=errors, stats=stats, message=message)
+    return render_template("index.html", data=data, review_words=review_words, errors=errors, stats=stats, message=message, show_meaning=show_meaning)
 
 @app.route("/import_vocab", methods=["POST"])
 def import_vocab():
