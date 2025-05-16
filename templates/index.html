@@ -17,6 +17,12 @@
     <input type="text" name="meaning" placeholder="中文释义" required>
     <button type="submit">添加</button>
   </form>
+<!-- 导入词库 JSON 文件 -->
+<form action="/import_vocab" method="post" enctype="multipart/form-data">
+  <label for="vocab_file">📥 导入词库（.json 文件）：</label>
+  <input type="file" name="vocab_file" accept=".json" required>
+  <button type="submit">导入</button>
+</form>
 
   <h2>📥 导入词库</h2>
   <form action="/import_vocab" method="POST" enctype="multipart/form-data">
