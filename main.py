@@ -63,9 +63,9 @@ def index():
                 data[word]["reviews"].append(days_since)
                 if action == "no":
                     data[word]["wrong"] = True
-                    show_meaning.append(word)
                 if len(data[word]["reviews"]) >= REVIEW_DAYS:
                     data[word]["completed"] = True
+                show_meaning.append(word)
 
         elif "delete_word" in request.form:
             word = request.form["delete_word"]
