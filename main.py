@@ -110,6 +110,14 @@ def import_vocab():
         save_data(data)
     return redirect("/")
 
+@app.route("/export_vocab")
+def export_vocab():
+    data = load_data()
+    output = BytesIO()
+    output.write(json.dumps(data, ensure_ascii=False, indent=2).encode("utf-8"))
+    output.seek(0)
+    return send_file(output, as_attachment=True, download_name="vocab_data.json", mimetype="application/json")
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
