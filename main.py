@@ -1,19 +1,17 @@
-from flask import Flask, render_template, request, redirect, url_for, send_file
-import json
-import os
-import datetime
+from flask import Flask, render_template, request, redirect, send_file
+import json, os, datetime
+from io import BytesIO
 
 app = Flask(__name__)
 
-REVIEW_DAYS = [1, 2, 3, 5, 7, 9, 12, 14, 17, 21]
 DATA_FILE = "vocab_data.json"
-ERROR_FILE = "error_summary.txt"
+REVIEW_DAYS = 3
 
 def load_data():
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
-    return {}
+    if not os.path.exists(DATA_FILE):
+        return {}
+    with open(DATA_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 def save_data(data):
     with open(DATA_FILE, "w", encoding="utf-8") as f:
@@ -25,13 +23,10 @@ def get_review_words(data):
     for word, info in data.items():
         if info.get("completed"):
             continue
-        reviews = info.get("reviews", [])
-        if not reviews:
+        start_date = datetime.datetime.strptime(info["start_date"], "%Y-%m-%d").date()
+        days_since = (today - start_date).days
+        if len(info["reviews"]) < REVIEW_DAYS:
             review.append((word, info))
-        else:
-            days_since = (today - datetime.datetime.strptime(info["start_date"], "%Y-%m-%d").date()).days
-            if REVIEW_DAYS and (not set(REVIEW_DAYS).isdisjoint(set([days_since]))):
-                review.append((word, info))
     return review
 
 def get_error_words(data):
@@ -41,8 +36,7 @@ def get_error_words(data):
 def index():
     data = load_data()
     message = ""
-
-    show_meaning = set()  # words to show meanings after review
+    show_meaning = []
 
     if request.method == "POST":
         if "new_word" in request.form:
@@ -51,7 +45,7 @@ def index():
             if word and word not in data:
                 data[word] = {
                     "meaning": meaning,
-                    "start_date": str(datetime.date.today()),
+                    "start_date": datetime.date.today().strftime("%Y-%m-%d"),
                     "reviews": [],
                     "completed": False,
                     "wrong": False
@@ -62,26 +56,29 @@ def index():
 
         elif "review_action" in request.form:
             word = request.form["review_action"]
-            action = request.form[f"action_{word}"]
-            start_date = datetime.datetime.strptime(data[word]["start_date"], "%Y-%m-%d").date()
-            days_since = (datetime.date.today() - start_date).days
-            data[word]["reviews"].append(days_since)
-            if action == "no":
-                data[word]["wrong"] = True
-            if sorted(data[word]["reviews"]) == REVIEW_DAYS:
-                data[word]["completed"] = True
-            show_meaning.add(word)
+            action = request.form.get(f"action_{word}")
+            if word in data:
+                start_date = datetime.datetime.strptime(data[word]["start_date"], "%Y-%m-%d").date()
+                days_since = (datetime.date.today() - start_date).days
+                data[word]["reviews"].append(days_since)
+                if action == "no":
+                    data[word]["wrong"] = True
+                    show_meaning.append(word)
+                if len(data[word]["reviews"]) >= REVIEW_DAYS:
+                    data[word]["completed"] = True
 
         elif "delete_word" in request.form:
             word = request.form["delete_word"]
             if word in data:
                 del data[word]
+                message = f"已删除：{word}"
 
         elif "export_errors" in request.form:
-            with open(ERROR_FILE, "w", encoding="utf-8") as f:
-                for word, info in get_error_words(data):
-                    f.write(f"{word} - {info['meaning']}\n")
-            message = "错词已导出为 error_summary.txt"
+            error_lines = [f"{w}: {info['meaning']}" for w, info in get_error_words(data)]
+            output = BytesIO()
+            output.write("\n".join(error_lines).encode("utf-8"))
+            output.seek(0)
+            return send_file(output, as_attachment=True, download_name="error_summary.txt", mimetype="text/plain")
 
         save_data(data)
 
@@ -89,32 +86,29 @@ def index():
     errors = get_error_words(data)
     stats = {
         "total": len(data),
-        "completed": sum(1 for v in data.values() if v["completed"]),
+        "completed": sum(1 for v in data.values() if v.get("completed")),
         "errors": len(errors),
         "pending": len(review_words)
     }
-
     return render_template("index.html", data=data, review_words=review_words, errors=errors, stats=stats, message=message, show_meaning=show_meaning)
 
 @app.route("/import_vocab", methods=["POST"])
 def import_vocab():
+    data = load_data()
     file = request.files.get("vocab_file")
     if file and file.filename.endswith(".json"):
-        try:
-            imported_data = json.load(file)
-            data = load_data()
-            data.update(imported_data)
-            save_data(data)
-            return redirect("/")
-        except Exception as e:
-            return f"导入失败：{e}", 400
-    return "无效的文件类型", 400
-
-@app.route("/download_errors")
-def download_errors():
-    if os.path.exists(ERROR_FILE):
-        return send_file(ERROR_FILE, as_attachment=True)
-    return "没有错词可导出", 404
+        new_data = json.load(file)
+        for word, meaning in new_data.items():
+            if word not in data:
+                data[word] = {
+                    "meaning": meaning,
+                    "start_date": datetime.date.today().strftime("%Y-%m-%d"),
+                    "reviews": [],
+                    "completed": False,
+                    "wrong": False
+                }
+        save_data(data)
+    return redirect("/")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
