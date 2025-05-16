@@ -3,72 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <title>背单词：🦉抗遗忘复习</title>
+  <style>
+    body { font-family: sans-serif; line-height: 1.6; }
+    .word-block { margin: 10px 0; }
+    form.inline { display: inline; }
+  </style>
 </head>
 <body>
   <h1>📘 背单词：🦉抗遗忘复习</h1>
-  {% if message %}
-    <p><strong>{{ message }}</strong></p>
-  {% endif %}
+
+  {% if message %}<p><b>{{ message }}</b></p>{% endif %}
+  <p>错词已导出为 <code>error_summary.txt</code></p>
 
   <h2>➕ 添加新单词</h2>
-  <form method="POST">
-    <input type="text" name="new_word" placeholder="英文">
-    <input type="text" name="meaning" placeholder="中文释义">
+  <form method="post">
+    英文 <input type="text" name="new_word">
+    中文释义 <input type="text" name="meaning">
     <button type="submit">添加</button>
   </form>
 
-  <h2>📤 导入词库（.json 文件）</h2>
-  <form method="POST" action="/import_vocab" enctype="multipart/form-data">
+  <h2>📂 导入词库</h2>
+  <form method="post" action="/import_vocab" enctype="multipart/form-data">
     <input type="file" name="vocab_file">
-    <button type="submit">导入</button>
+    <button type="submit">导入 JSON</button>
   </form>
 
-  <h2>🕒 待复习单词</h2>
+  <h2>🕰️ 待复习单词</h2>
   {% if review_words %}
-    <form method="POST">
-      {% for word, info in review_words %}
-        <div>
-          <p><strong>{{ word }}</strong> {% if word in show_meaning %}- {{ info.meaning }}{% endif %}</p>
+    {% for word, info in review_words %}
+      <div class="word-block">
+        <b>{{ word }}</b>
+        {% if word in show_meaning %}- {{ info.meaning }}{% endif %}<br>
+        <form method="post" class="inline">
+          <input type="hidden" name="review_action" value="{{ word }}">
           <label><input type="radio" name="action_{{ word }}" value="yes" required> 记住</label>
           <label><input type="radio" name="action_{{ word }}" value="no"> 没记住</label>
-          <button type="submit" name="review_action" value="{{ word }}">提交</button>
-        </div>
-      {% endfor %}
-    </form>
-  {% else %}
-    <p>🎉 今天没有需要复习的单词！</p>
-  {% endif %}
-
-  <h2>🗑️ 删除单词</h2>
-  <form method="POST">
-    <select name="delete_word">
-      {% for word in data %}
-        <option value="{{ word }}">{{ word }}</option>
-      {% endfor %}
-    </select>
-    <button type="submit">删除</button>
-  </form>
+          <button type="submit">提交</button>
+        </form>
+        <form method="post" class="inline">
+          <input type="hidden" name="delete_word" value="{{ word }}">
+          <button type="submit">删除</button>
+        </form>
+      </div>
+    {% endfor %}
+  {% else %}<p>🎉 今天没有需要复习的单词！</p>{% endif %}
 
   <h2>📉 错误总结</h2>
-  <form method="POST">
+  <form method="post">
     <button type="submit" name="export_errors">导出错词</button>
   </form>
   {% if errors %}
     <ul>
       {% for word, info in errors %}
-        <li>{{ word }} - {{ info.meaning }}（记录于 {{ info.start_date }}）</li>
+        <li>{{ word }} - {{ info.meaning }} （记录于 {{ info.start_date }}）</li>
       {% endfor %}
     </ul>
-  {% else %}
-    <p>暂无错误记录。</p>
-  {% endif %}
+  {% else %}<p>暂无错误记录。</p>{% endif %}
 
-  <p>📝 复习进度：总词数：{{ stats.total }}，已完成：{{ stats.completed }}，错词：{{ stats.errors }}，待复习：{{ stats.pending }}</p>
-</body>
-</html>
-
-
-  <p>📝 复习进度：总词数：{{ stats.total }}，已完成：{{ stats.completed }}，错词：{{ stats.errors }}，待复习：{{ stats.pending }}</p>
+  <h2>📊 复习进度</h2>
+  <p>总词数：{{ stats.total }}，已完成：{{ stats.completed }}，错词：{{ stats.errors }}，待复习：{{ stats.pending }}</p>
 </body>
 </html>
 
