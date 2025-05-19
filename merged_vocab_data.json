@@ -1,0 +1,562 @@
+{
+  "object": {
+    "meaning": "物体",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "pole": {
+    "meaning": "电极",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "without": {
+    "meaning": "没有",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "overcoat": {
+    "meaning": "大衣",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "greeting": {
+    "meaning": "祝贺",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "weep": {
+    "meaning": "哭泣",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "hunt": {
+    "meaning": "打猎",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "thus": {
+    "meaning": "因此",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "postcode": {
+    "meaning": "邮编",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "ambiguous": {
+    "meaning": "模糊的",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "zipper": {
+    "meaning": "拉链",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "channel": {
+    "meaning": "频道",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "substitute": {
+    "meaning": "代替者",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "routine": {
+    "meaning": "常规的",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "strengthen": {
+    "meaning": "加强",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "phrase": {
+    "meaning": "词组",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "basin": {
+    "meaning": "盆地",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "absurd": {
+    "meaning": "荒谬的",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "sale": {
+    "meaning": "出售",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "race": {
+    "meaning": "民族竞赛",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "merry": {
+    "meaning": "愉快的",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "consensus": {
+    "meaning": "共识",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "courtyard": {
+    "meaning": "庭院",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "postcard": {
+    "meaning": "明信片",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "fragrant": {
+    "meaning": "芬芳的",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "impossible": {
+    "meaning": "不可能的",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "howl": {
+    "meaning": "叫喊",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "wine": {
+    "meaning": "酒",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "antique": {
+    "meaning": "古董",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "nearby": {
+    "meaning": "在附近",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "geometry": {
+    "meaning": "几何学",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "amateur": {
+    "meaning": "业余爱好者",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "eraser": {
+    "meaning": "橡皮擦",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "relay": {
+    "meaning": "接力赛",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "departure": {
+    "meaning": "出发",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "cleaner": {
+    "meaning": "清洁工",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "afterward": {
+    "meaning": "后来",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "tobacco": {
+    "meaning": "烟草",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "carve": {
+    "meaning": "雕刻",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "broom": {
+    "meaning": "扫帚",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "skin": {
+    "meaning": "皮肤",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "fog": {
+    "meaning": "雾",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "female": {
+    "meaning": "女性的",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "congratulation": {
+    "meaning": "祝贺",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "Buddhism": {
+    "meaning": "佛教",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "import": {
+    "meaning": "进口",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "branch": {
+    "meaning": "枝条",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "sort": {
+    "meaning": "分类",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "tailor": {
+    "meaning": "裁缝",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "lamp": {
+    "meaning": "灯",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "subscribe": {
+    "meaning": "订阅",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "oral": {
+    "meaning": "口述的",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "evolution": {
+    "meaning": "进化",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "foreign": {
+    "meaning": "外国的",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "mainland": {
+    "meaning": "大陆",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "crash": {
+    "meaning": "碰撞",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "planet": {
+    "meaning": "行星",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "supply": {
+    "meaning": "供应",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "tap": {
+    "meaning": "轻巧",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "reply": {
+    "meaning": "回答",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "dynamic": {
+    "meaning": "充满活力的",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "status": {
+    "meaning": "地位",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "minority": {
+    "meaning": "少数民族",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "emergency": {
+    "meaning": "紧急情况",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "curtain": {
+    "meaning": "窗帘",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "sparrow": {
+    "meaning": "麻雀",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "stocking": {
+    "meaning": "长袜",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "unrest": {
+    "meaning": "动荡骚乱",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "basement": {
+    "meaning": "地下室",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "state": {
+    "meaning": "陈述情形",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "amusement": {
+    "meaning": "消遣",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "reality": {
+    "meaning": "现实",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "appreciate": {
+    "meaning": "鉴赏",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "boil": {
+    "meaning": "沸腾",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "African": {
+    "meaning": "非洲人",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "mushroom": {
+    "meaning": "蘑菇",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "palace": {
+    "meaning": "宫殿",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "shut": {
+    "meaning": "关上",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "souvenir": {
+    "meaning": "纪念品",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  },
+  "apart": {
+    "meaning": "分别地",
+    "start_date": "2025-05-16",
+    "reviews": [],
+    "completed": false,
+    "wrong": false
+  }
+}
